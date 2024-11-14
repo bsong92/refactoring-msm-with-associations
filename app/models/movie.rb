@@ -20,6 +20,8 @@ class Movie < ApplicationRecord
 
   belongs_to(:director, class_name: "Director", foreign_key: "director_id") #-> defining the whole .zebra method 
 
+  has_many(:cast, through: :characters, source: :actor)
+
   def zebra
     d_id = self.director_id
 
